@@ -1,0 +1,90 @@
+#Init by clioninit.py
+cmake_minimum_required(VERSION 3.3)
+project(srs-bench-master)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+set(SOURCE_FILES
+    main.cpp
+    objs/http-parser-2.1/http_parser.c
+    objs/http-parser-2.1/http_parser.h
+    objs/http-parser-2.1/test.c
+    objs/http-parser-2.1/contrib/parsertrace.c
+    objs/http-parser-2.1/contrib/url_parser.c
+    objs/st-1.9/common.h
+    objs/st-1.9/event.c
+    objs/st-1.9/io.c
+    objs/st-1.9/key.c
+    objs/st-1.9/md.h
+    objs/st-1.9/public.h
+    objs/st-1.9/sched.c
+    objs/st-1.9/stk.c
+    objs/st-1.9/sync.c
+    objs/st-1.9/examples/error.c
+    objs/st-1.9/examples/lookupdns.c
+    objs/st-1.9/examples/proxy.c
+    objs/st-1.9/examples/res.c
+    objs/st-1.9/examples/server.c
+    objs/st-1.9/extensions/common.h
+    objs/st-1.9/extensions/dnscache.c
+    objs/st-1.9/extensions/dnsres.c
+    objs/st-1.9/extensions/lrucache.c
+    objs/st-1.9/extensions/stx.h
+    objs/st-1.9/extensions/stx_fileio.c
+    objs/st-1.9/extensions/stx_fileio.h
+    objs/st-1.9/extensions/testdns.c
+    objs/st-1.9/LINUX_2.6.32-431.29.2.el6.x86_64_DBG/st.h
+    objs/st-1.9/obj/st.h
+    src/app/htl_app_hls_load.cpp
+    src/app/htl_app_hls_load.hpp
+    src/app/htl_app_http_client.cpp
+    src/app/htl_app_http_client.hpp
+    src/app/htl_app_http_load.cpp
+    src/app/htl_app_http_load.hpp
+    src/app/htl_app_m3u8_parser.cpp
+    src/app/htl_app_m3u8_parser.hpp
+    src/app/htl_app_rtmp_load.cpp
+    src/app/htl_app_rtmp_load.hpp
+    src/app/htl_app_rtmp_play.cpp
+    src/app/htl_app_rtmp_play.hpp
+    src/app/htl_app_rtmp_protocol.cpp
+    src/app/htl_app_rtmp_protocol.hpp
+    src/app/htl_app_rtmp_publish.cpp
+    src/app/htl_app_rtmp_publish.hpp
+    src/app/htl_app_srs_hijack.cpp
+    src/app/htl_app_srs_hijack.hpp
+    src/app/htl_app_task_base.cpp
+    src/app/htl_app_task_base.hpp
+    src/core/htl_core_aggregate_ret.cpp
+    src/core/htl_core_aggregate_ret.hpp
+    src/core/htl_core_error.cpp
+    src/core/htl_core_error.hpp
+    src/core/htl_core_log.cpp
+    src/core/htl_core_log.hpp
+    src/core/htl_core_uri.cpp
+    src/core/htl_core_uri.hpp
+    src/core/htl_stdinc.hpp
+    src/main/htl_main_hls_load.cpp
+    src/main/htl_main_http_load.cpp
+    src/main/htl_main_rtmp_load.cpp
+    src/main/htl_main_rtmp_load_fast.cpp
+    src/main/htl_main_rtmp_publish.cpp
+    src/main/htl_main_utility.cpp
+    src/main/htl_main_utility.hpp
+    src/os/htl_os_st.cpp
+    src/os/htl_os_st.hpp
+)
+
+add_executable(srs-bench-master ${SOURCE_FILES})
+include_directories(.)
+include_directories(objs)
+include_directories(objs/http-parser-2.1)
+include_directories(objs/st-1.9)
+include_directories(objs/st-1.9/LINUX_2.6.32-431.29.2.el6.x86_64_DBG)
+include_directories(objs/st-1.9/extensions)
+include_directories(objs/st-1.9/obj)
+include_directories(src)
+include_directories(src/app)
+include_directories(src/core)
+include_directories(src/main)
+include_directories(src/os)
